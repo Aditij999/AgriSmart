@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', sans-serif;
+    background: transparent;
+  }
+  #wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #mic-btn {
+    border: none;
+    border-radius: 999px;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    background: #EDE7DA;
+    color: #8C6D3F;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  #mic-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  #status {
+    font-size: 12px;
+    color: #7C7057;
+  }
+</style>
+</head>
+<body>
+  <div id="wrap">
+    <button id="mic-btn" type="button" title="Speak your question">🎤</button>
+    <span id="status"></span>
+  </div>
+
+  <script>
+    // ── Streamlit component protocol, implemented by hand ──────────────
+    // A plain components.html() iframe is one-way (display only); only an
+    // iframe declared through components.declare_component() takes part in
+    // this postMessage handshake, which is what lets a component send a
+    // value back into Python *without* navigating the page — no more full
+    // reloads that close the chat dialog before the transcript is read.
+    function sendToStreamlit(type, data) {
+      const payload = Object.assign({ isStreamlitMessage: true, type: type }, data);
+      window.parent.postMessage(payload, "*");
+    }
+    function setFrameHeight(height) {
+      sendToStreamlit("streamlit:setFrameHeight", { height: height });
+    }
+    function sendValue(value) {
+      sendToStreamlit("streamlit:setComponentValue", { value: value, dataType: "json" });
+    }
+
+    const btn = document.getElementById("mic-btn");
+    const status = document.getElementById("status");
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+      status.textContent = "Voice input isn't supported in this browser.";
+      btn.disabled = true;
+    } else {
+      const recognizer = new SpeechRecognition();
+      recognizer.lang = "en-US";
+      recognizer.interimResults = false;
+      recognizer.maxAlternatives = 1;
+      let listening = false;
+
+      recognizer.onstart = function () {
+        listening = true;
+        btn.style.background = "#E5484D";
+        btn.style.color = "#fff";
+        status.textContent = "Listening…";
+      };
+      recognizer.onend = function () {
+        listening = false;
+        btn.style.background = "#EDE7DA";
+        btn.style.color = "#8C6D3F";
+        if (status.textContent === "Listening…") status.textContent = "";
+      };
+      recognizer.onerror = function () {
+        status.textContent = "Didn't catch that — try again.";
+      };
+      recognizer.onresult = function (event) {
+        const text = event.results[0][0].transcript;
+        status.textContent = "Heard: " + text;
+        // Delivered straight back to Python as this component's return
+        // value on the next rerun — the same rerun mechanism as any other
+        // widget, and it happens in place, inside the still-open dialog.
+        // A nonce rides along so Python can tell two *different* dictations
+        // of the same phrase apart, since the component would otherwise
+        // keep re-returning an unchanged value on every later rerun.
+        sendValue({ text: text, nonce: Date.now() + "-" + Math.random() });
+      };
+
+      btn.addEventListener("click", function () {
+        if (listening) {
+          recognizer.stop();
+          return;
+        }
+        try {
+          recognizer.start();
+        } catch (e) {
+          /* already starting */
+        }
+      });
+    }
+
+    // Handshake: tell Streamlit we're ready, then report our height once.
+    // No inbound "streamlit:render" args are used by this component.
+    sendToStreamlit("streamlit:componentReady", { apiVersion: 1 });
+    setFrameHeight(40);
+  </script>
+</body>
+</html>

@@ -1,0 +1,326 @@
+{
+  "intents": {
+
+    "GREETING": [
+      "hi",
+      "hello",
+      "hey",
+      "hey there",
+      "good morning",
+      "good afternoon",
+      "good evening",
+      "hi smart agri",
+      "hello smart agri",
+      "hey smart agri"
+    ],
+
+    "HELP": [
+      "help",
+      "what can you do",
+      "how can you help me",
+      "what can I ask you",
+      "what questions can I ask",
+      "show me what you can do",
+      "help me use smart agri",
+      "how do I use the chatbot",
+      "what can this chatbot answer"
+    ],
+
+    "OUT_OF_SCOPE": [
+      "what is the capital of India",
+      "tell me a joke",
+      "who is the prime minister",
+      "what is the weather today",
+      "write me a poem",
+      "tell me about cricket",
+      "what is artificial intelligence",
+      "who won the match",
+      "what is the news today"
+    ],
+
+    "UNKNOWN": [
+      "asdfgh",
+      "I don't know what to ask",
+      "blah blah",
+      "random question",
+      "something",
+      "can you understand this",
+      "I have a question",
+      "tell me something"
+    ],
+
+
+    "SYSTEM_OVERVIEW": [
+      "what is smart agri",
+      "what does smart agri do",
+      "what is this software",
+      "tell me about the system",
+      "what does this system do",
+      "how does smart agri work",
+      "what is the purpose of smart agri",
+      "what features does smart agri have"
+    ],
+
+    "HOW_TO_USE": [
+      "how do I use smart agri",
+      "how can I use the software",
+      "how do I use the system",
+      "how does the software work",
+      "how do I get a recommendation",
+      "what do I need to enter",
+      "what inputs do I need",
+      "how do I get started"
+    ],
+
+    "DASHBOARD": [
+      "what is on the dashboard",
+      "show me the dashboard",
+      "what does the dashboard show",
+      "what information is displayed",
+      "explain the dashboard",
+      "what can I see on the dashboard",
+      "where can I see my results"
+    ],
+
+    "ML_MODEL_EXPLANATION": [
+      "what model does smart agri use",
+      "how does the prediction model work",
+      "what machine learning model is used",
+      "how does the crop model work",
+      "how is the crop prediction made",
+      "how does the yield model work",
+      "which machine learning algorithm is used"
+    ],
+
+
+    "SUPPORTED_CROPS": [
+      "which crops are supported",
+      "what crops can smart agri recommend",
+      "what crops does the system support",
+      "which crops can I choose",
+      "what are the supported crops",
+      "tell me the supported crops",
+      "what crops are available"
+    ],
+
+    "CROP_RECOMMENDATION": [
+      "what crop should I grow",
+      "which crop should I plant",
+      "what crop is best for my soil",
+      "which crop is recommended",
+      "give me a crop recommendation",
+      "what should I grow",
+      "which crop should I choose",
+      "recommend a crop for me",
+      "what is the best crop for my soil"
+    ],
+
+    "CROP_RECOMMENDATION_EXPLANATION": [
+      "why was this crop recommended",
+      "why did you recommend this crop",
+      "why is this crop suitable",
+      "why is wheat recommended",
+      "why did smart agri choose this crop",
+      "explain my crop recommendation",
+      "why was this crop selected",
+      "what makes this crop suitable"
+    ],
+
+    "CROP_PROBABILITY": [
+      "what is the probability of my crop",
+      "what is the confidence of the crop recommendation",
+      "show me crop probabilities",
+      "what percentage is my crop",
+      "how confident is the recommendation",
+      "what are the probabilities for each crop",
+      "show me the top crop probabilities",
+      "how likely is wheat"
+    ],
+
+    "CROP_SOIL_MISMATCH": [
+      "is this crop suitable for my soil",
+      "does this crop match my soil",
+      "is my soil suitable for this crop",
+      "why is this crop not suitable",
+      "does my soil support this crop",
+      "is there a mismatch between my soil and crop",
+      "is this crop a poor match for my soil"
+    ],
+
+
+    "SOIL_ANALYSIS": [
+      "analyze my soil",
+      "what is my soil condition",
+      "give me my soil analysis",
+      "how is my soil",
+      "show me my soil analysis",
+      "tell me about my soil",
+      "what does my soil report say",
+      "summarize my soil condition"
+    ],
+
+    "SOIL_NITROGEN": [
+      "what is my nitrogen level",
+      "how much nitrogen do I have",
+      "is my nitrogen low",
+      "is nitrogen optimal",
+      "tell me about my nitrogen",
+      "what is the nitrogen status",
+      "how does my nitrogen compare",
+      "what is my nitrogen value"
+    ],
+
+    "SOIL_PHOSPHORUS": [
+      "what is my phosphorus level",
+      "how much phosphorus do I have",
+      "is my phosphorus low",
+      "is phosphorus optimal",
+      "tell me about my phosphorus",
+      "what is the phosphorus status",
+      "how does my phosphorus compare",
+      "what is my phosphorus value"
+    ],
+
+    "SOIL_POTASSIUM": [
+      "what is my potassium level",
+      "how much potassium do I have",
+      "is my potassium low",
+      "is potassium optimal",
+      "tell me about my potassium",
+      "what is the potassium status",
+      "how does my potassium compare",
+      "what is my potassium value"
+    ],
+
+    "SOIL_PH": [
+      "what is my soil ph",
+      "what is my pH level",
+      "is my soil ph low",
+      "is my soil ph optimal",
+      "tell me about my soil acidity",
+      "what is the pH status",
+      "how does my pH compare",
+      "what is my pH value"
+    ],
+
+    "SOIL_STATUS_EXPLANATION": [
+      "what does low mean",
+      "what does high mean",
+      "what does optimal mean",
+      "what does low nitrogen mean",
+      "what does high phosphorus mean",
+      "what does optimal potassium mean",
+      "explain the soil status",
+      "what do low high and optimal mean"
+    ],
+
+
+    "FERTILIZER_RECOMMENDATION": [
+      "what fertilizer should I use",
+      "which fertilizer is recommended",
+      "what fertilizer do I need",
+      "give me my fertilizer recommendation",
+      "what fertilizer should I apply",
+      "which fertilizer is best for my soil",
+      "what fertilizer does smart agri recommend",
+      "what should I apply to my soil"
+    ],
+
+    "FERTILIZER_DOSAGE": [
+      "how much fertilizer should I apply",
+      "what is the fertilizer dosage",
+      "how should I apply the fertilizer",
+      "when should I apply the fertilizer",
+      "what is the application method",
+      "how much urea should I apply",
+      "how much lime should I apply",
+      "when should I apply urea"
+    ],
+
+    "WHY_FERTILIZER_NEEDED": [
+      "why do I need fertilizer",
+      "why is fertilizer needed",
+      "why is urea recommended",
+      "why is this fertilizer recommended",
+      "why do I need urea",
+      "why do I need lime",
+      "why does my soil need fertilizer",
+      "why is this fertilizer necessary"
+    ],
+
+    "FERTILIZER_EXPLANATION": [
+      "what is urea",
+      "what is DAP",
+      "what is MOP",
+      "what is 19 19 19 NPK",
+      "what does 46 0 0 mean",
+      "what does the fertilizer recommendation mean",
+      "explain my fertilizer recommendation",
+      "tell me about the recommended fertilizer"
+    ],
+
+
+    "YIELD_PREDICTION": [
+      "what is my predicted yield",
+      "how much yield will I get",
+      "what is my expected yield",
+      "how much can I produce",
+      "give me my yield prediction",
+      "what yield can I expect",
+      "tell me my predicted yield",
+      "how much yield can I expect",
+      "what would be expected yield for wheat",
+      "what would be the expected yield",
+      "expected yield for wheat",
+      "what is the expected yield for wheat",
+      "how much yield for wheat",
+      "predicted yield for wheat",
+      "wheat yield prediction",
+      "what is wheat yield",
+      "expected yield for jowar",
+      "expected yield for cotton",
+      "expected yield for sugarcane",
+      "expected yield for groundnut",
+      "what yield will I get for this crop",
+      "how much production can I expect",
+      "गेहूं की उपज कितनी होगी",
+      "उपज कितनी होगी",
+      "अंदाजित उत्पादन किती आहे",
+      "गहू उत्पादन किती अपेक्षित आहे"
+    ],
+
+    "YIELD_EXPLANATION": [
+      "what does my yield prediction mean",
+      "explain my yield result",
+      "is my predicted yield good",
+      "how should I interpret my yield",
+      "what does my yield result mean",
+      "explain the yield prediction",
+      "is my yield prediction favorable",
+      "what does this yield mean"
+    ],
+
+    "YIELD_FACTORS": [
+      "what affects my yield prediction",
+      "what factors are used for yield prediction",
+      "what inputs does the yield model use",
+      "what does the yield model consider",
+      "which factors affect yield",
+      "what information is used to predict yield",
+      "what features does the yield model use",
+      "what does smart agri use to predict yield"
+    ],
+
+    "YIELD_STATUS_EXPLANATION": [
+      "what does low yield mean",
+      "what does moderate yield mean",
+      "what does good yield mean",
+      "what does high yield mean",
+      "what does the yield status mean",
+      "why is my yield moderate",
+      "why is my yield classified as good",
+      "explain the yield categories"
+    ]
+
+  }
+}

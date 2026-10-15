@@ -1,0 +1,9 @@
+# Visual theme only — matches the AgriSmart design (paper background, forest
+# green primary, gold accent). Pinning a light base also stops the chat
+# dialog and widgets from flipping to dark mode with the visitor's OS setting.
+[theme]
+base = "light"
+primaryColor = "#244F3B"
+backgroundColor = "#F8F6EF"
+secondaryBackgroundColor = "#EEE8D9"
+textColor = "#213329"
