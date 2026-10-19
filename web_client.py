@@ -57,13 +57,29 @@ def _request(method: str, path: str, token: str | None = None, timeout: int = _T
     return body
 
 
-def is_backend_online() -> bool:
-    try:
-        _request("GET", "/health", timeout=3)
-        return True
-    except ApiError:
-        return False
+_WAKE_TIMEOUT = 60  # a sleeping free-tier host (e.g. Render) can take ~30-60 s to wake
+_ONLINE_CACHE_SECONDS = 15
+_online_cache: tuple[float, bool] | None = None
 
+
+def is_backend_online() -> bool:
+    global _online_cache
+    now = time.monotonic()
+    if _online_cache and now - _online_cache[0] < _ONLINE_CACHE_SECONDS:
+        return _online_cache[1]
+
+    url = f"{BASE_URL}/health"
+    online = False
+    try:
+        try:
+            online = requests.get(url, timeout=3).status_code < 400
+        except requests.Timeout:
+            online = requests.get(url, timeout=_WAKE_TIMEOUT).status_code < 400
+    except requests.RequestException:
+        online = False
+
+    _online_cache = (time.monotonic(), online)
+    return online
 
 # ── Auth ─────────────────────────────────────────────────────────────
 def register(username: str, password: str, email: str | None = None, full_name: str | None = None) -> dict:
