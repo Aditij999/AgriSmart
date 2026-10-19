@@ -15,6 +15,7 @@ API_BASE_URL environment variable, e.g.:
 from __future__ import annotations
 
 import os
+import time
 
 import requests
 
